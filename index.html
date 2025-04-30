@@ -26,6 +26,15 @@
 
     document.title = `Coleta de Validade - ${loja.toUpperCase()}`;
   </script>
+  
+  <script>
+  const usuarioLogado = sessionStorage.getItem("usuarioLogado");
+
+if (!usuarioLogado) {
+  const loja = new URLSearchParams(window.location.search).get("loja");
+  window.location.href = `login.html${loja ? '?loja=' + loja : ''}`;
+}
+  </script>
 
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; font-family: Arial, sans-serif; }
